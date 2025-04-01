@@ -1,90 +1,39 @@
 package parser;
 
 public class MidiEventData {
-	private int channel;
-	private int note;
-	private int startTick;
-	private int endTick;
-	private int velocity;
+	private int startEndTick, velocity, note, channel, noteOnOff;
 	private int instrument;
 	
 	/**
 	 * Constructor to initialize MidiEventData
 	 */
-	public MidiEventData(int channel, int note, int startTick, int endTick, int velocity, int instrument) {
-		this.channel = channel;
-		this.note = note;
-		this.startTick = startTick;
-		this.endTick = endTick;
+	public MidiEventData(int startEndTick, int velocity, int note, int channel, int instrument, int noteOnOff) {
+		this.startEndTick = startEndTick;
 		this.velocity = velocity;
-		this.instrument = instrument;
-	}
-	/**
-	 * Gets the channel of the MidiEventData.
-	 * @return Returns the channel.
-	 */
-	public int getChannel() {
-		return channel;
-	}
-
-	/**
-	 * Sets the channel of the MidiEventData.
-	 * @param channel
-	 */
-	public void setChannel(int channel) {
-		this.channel = channel;
-	}
-
-	/**
-	 * Gets the note of the MidiEventData.
-	 * @return Returns the note.
-	 */
-	public int getNote() {
-		return note;
-	}
-	
-	/**
-	 * Sets the note of the MidiEventData.
-	 * @param note
-	 */
-	public void setNote(int note) {
 		this.note = note;
-	}
-	
+		this.channel = channel;
+		this.instrument = instrument;
+		this.noteOnOff= noteOnOff;
+		}
+
 	/**
-	 * Gets the start tick of the MidiEventData.
-	 * @return Returns the start tick.
+	 * Gets the startEndTick.
+	 * @return Returns the startEndTick.
 	 */
-	public int getStartTick() {
-		return startTick;
+	public int getStartEndTick() {
+		return startEndTick;
 	}
 
 	/**
-	 * Sets the start tick of the MidiEventData.
-	 * @param startTick
+	 * Sets the startEndTick.
+	 * @param startEndTick
 	 */
-	public void setStartTick(int startTick) {
-		this.startTick = startTick;
+	public void setStartEndTick(int startEndTick) {
+		this.startEndTick = startEndTick;
 	}
 
 	/**
-	 * Gets the end tick of the MidiEventData.
-	 * @return Returns the end tick.
-	 */
-	public int getEndTick() {
-		return endTick;
-	}
-	
-	/**
-	 * Sets the end tick of the MidiEventData.
-	 * @param endTick
-	 */
-	public void setEndTick(int endTick) {
-		this.endTick = endTick;
-	}
-
-	/**
-	 * Gets the velocity of the MidiEventData.
+	 * Gets the velocity.
 	 * @return Returns the velocity.
 	 */
 	public int getVelocity() {
@@ -92,7 +41,7 @@ public class MidiEventData {
 	}
 
 	/**
-	 * Sets the velocity of the MidiEventData.
+	 * Sets the velocity.
 	 * @param velocity
 	 */
 	public void setVelocity(int velocity) {
@@ -100,14 +49,63 @@ public class MidiEventData {
 	}
 
 	/**
-	 * Gets the instrument of the MidiEventData.
+	 * Gets the note.
+	 * @return Returns the note.
+	 */
+	public int getNote() {
+		return note;
+	}
+
+	/**
+	 * Sets the note.
+	 * @param note
+	 */
+	public void setNote(int note) {
+		this.note = note;
+	}
+	
+	/**
+	 * Gets the channel.
+	 * @return Returns the channel.
+	 */
+	public int getChannel() {
+		return channel;
+	}
+	
+	/**
+	 * Sets the channel.
+	 * @param channel
+	 */
+	public void setChannel(int channel) {
+		this.channel = channel;
+	}
+
+	/**
+	 * Gets the NoteOnOff.
+	 * @return Returns the NoteOnOff.
+	 */
+	public int getNoteOnOff() {
+		return noteOnOff;
+	}
+
+	/**
+	 * Sets the NoteOnOff.
+	 * @param NoteOnOff
+	 */
+	public void setNoteOnOff(int noteOnOff) {
+		this.noteOnOff = noteOnOff;
+	}
+
+	/**
+	 * Gets the instrument.
 	 * @return Returns the instrument.
 	 */
 	public int getInstrument() {
 		return instrument;
 	}
+
 	/**
-	 * Sets the instrument of the MidiEventData.
+	 * Sets the instrument.
 	 * @param instrument
 	 */
 	public void setInstrument(int instrument) {
@@ -115,3 +113,5 @@ public class MidiEventData {
 	}
 	
 }
+	
+	
