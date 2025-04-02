@@ -5,17 +5,17 @@ import javax.sound.midi.MidiEvent;
 import javax.sound.midi.ShortMessage;
 import javax.sound.midi.Track;
 
-public class ElectricBassGuitar implements InstrumentStrategy{
+public class TrumpetStrategy implements InstrumentStrategy{
 
 	/**
-	 * assigns the instrument to electric bass guitar (finger)
+	 * assigns the instrument to trumpet
 	 * 
 	 */
 	@Override
 	public void applyInstrument(Track track, int channel) {
 		ShortMessage programChange = new ShortMessage();
 		try {
-			programChange.setMessage(ShortMessage.PROGRAM_CHANGE, channel, 33, 0);
+			programChange.setMessage(ShortMessage.PROGRAM_CHANGE, channel, 56, 0);
 		} catch (InvalidMidiDataException e) {
 			e.printStackTrace();
 		}
