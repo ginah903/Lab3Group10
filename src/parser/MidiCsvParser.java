@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MidiCsvParser {
 
-	public List<MidiEventData> parsedMidiEvent(String filename) {
+	public static List<MidiEventData> parsedMidiEvent(String filename) {
 		
 		List<MidiEventData> events = new ArrayList<>();
 		
