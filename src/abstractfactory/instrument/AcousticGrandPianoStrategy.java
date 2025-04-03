@@ -7,6 +7,9 @@ import javax.sound.midi.Track;
 
 public class AcousticGrandPianoStrategy implements InstrumentStrategy{
 
+	/**
+	 * Assigns instrument to acoustic grand piano within the specific channel
+	 */
 	@Override
 	public void applyInstrument(Track track, int channel) {
 		ShortMessage programChange = new ShortMessage();
