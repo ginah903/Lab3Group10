@@ -7,6 +7,8 @@ import abstractfactory.MidiEventFactory;
 import abstractfactory.MidiEventFactoryAbstract;
 import abstractfactory.behavior.LegatoMidiEventFactoryAbstract;
 import abstractfactory.instrument.TrumpetStrategy;
+import abstractfactory.instrument.AcousticGrandPianoStrategy;
+import abstractfactory.instrument.ElectricBassGuitarStrategy;
 import abstractfactory.instrument.InstrumentStrategy;
 import abstractfactory.pitch.HigherPitchStrategy;
 import abstractfactory.pitch.PitchStrategy;
@@ -26,7 +28,7 @@ public class Main {
             MidiEventFactory factory = factoryAbstract.createFactory();
 
             // Choose an instrument: Trumpet
-            InstrumentStrategy instrumentStrategy = new TrumpetStrategy();
+            InstrumentStrategy instrumentStrategy = new AcousticGrandPianoStrategy();
             instrumentStrategy.applyInstrument(track, 0);
 
             // Choose a pitch: Higher
@@ -37,7 +39,7 @@ public class Main {
             	int modifiedNote = pitchStrategy.modifyPitch(event.getNote()); 
             	modifiedNote = pitchStrategy.modifyPitch(modifiedNote);
             	
-            	if (event.getNoteOnOff() == ShortMessage.NOTE_ON) {
+            	if (event.getNoteOnOff() == 1) {
             		track.add(factory.createNoteOn(event.getStartEndTick(),
             				modifiedNote,
             				event.getVelocity(),
@@ -53,6 +55,8 @@ public class Main {
             sequencer.open();
             sequencer.setSequence(sequence);
             sequencer.start();
+            
+            System.out.println("Main is working");
             
             while (sequencer.isRunning() | sequencer.isOpen()) {
             	Thread.sleep(100);

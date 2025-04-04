@@ -34,8 +34,6 @@ public class MidiCsvParser {
 					
                     String noteType = values[1].trim();
                     
-                    int noteOnOff = noteType.equalsIgnoreCase("Note_on_c") ? 1 : 0;
-                    
                     int channel = Integer.parseInt(values[2].trim());
                     
                     int note = Integer.parseInt(values[3].trim());
@@ -43,6 +41,17 @@ public class MidiCsvParser {
                     int velocity = Integer.parseInt(values[4].trim());
                     
                     int instrument = Integer.parseInt(values[5].trim());
+                    
+                    int noteOnOff;
+                    
+                    if (noteType.equalsIgnoreCase("Note_on_c") && velocity > 0) {
+                        noteOnOff = 1;
+                    } else if (noteType.equalsIgnoreCase("Note_off_c") || 
+                               (noteType.equalsIgnoreCase("Note_on_c") && velocity == 0)) {
+                        noteOnOff = 0;
+                    } else {
+                        continue; // Skip unknown event types
+                    }
                     
                     MidiEventData event = new MidiEventData(
                     	startEndTick, velocity, note, channel, instrument, noteOnOff
