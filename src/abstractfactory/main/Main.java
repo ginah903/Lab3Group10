@@ -6,9 +6,7 @@ import javax.sound.midi.*;
 import abstractfactory.MidiEventFactory;
 import abstractfactory.MidiEventFactoryAbstract;
 import abstractfactory.behavior.LegatoMidiEventFactoryAbstract;
-import abstractfactory.instrument.TrumpetStrategy;
 import abstractfactory.instrument.AcousticGrandPianoStrategy;
-import abstractfactory.instrument.ElectricBassGuitarStrategy;
 import abstractfactory.instrument.InstrumentStrategy;
 import abstractfactory.pitch.HigherPitchStrategy;
 import abstractfactory.pitch.PitchStrategy;
@@ -27,7 +25,7 @@ public class Main {
             MidiEventFactoryAbstract factoryAbstract = new LegatoMidiEventFactoryAbstract(); 
             MidiEventFactory factory = factoryAbstract.createFactory();
 
-            // Choose an instrument: Trumpet
+            // Choose an instrument: Piano
             InstrumentStrategy instrumentStrategy = new AcousticGrandPianoStrategy();
             instrumentStrategy.applyInstrument(track, 0);
 
@@ -55,9 +53,7 @@ public class Main {
             sequencer.open();
             sequencer.setSequence(sequence);
             sequencer.start();
-            
-            System.out.println("Main is working");
-            
+           
             while (sequencer.isRunning() | sequencer.isOpen()) {
             	Thread.sleep(100);
             }
