@@ -10,6 +10,12 @@ import java.util.List;
 
 public class MidiCsvParser {
 
+	/**
+	 * Reads each line of the .csv file using BufferedReader, splits the values by commas, and
+	 * creates MidiEventData objects.
+	 * @param filename The file to read
+	 * @return Returns the read events as MidiEventData objects. 
+	 */
 	public static List<MidiEventData> parsedMidiEvent(String filename) {
 		
 		List<MidiEventData> events = new ArrayList<>();
